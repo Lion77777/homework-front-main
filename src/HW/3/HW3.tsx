@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 export const HW3 = () => {
   // 1️⃣ Раскомментируйте JSX(HW3.tsx) и вы увидите,
@@ -16,8 +16,8 @@ export const HW3 = () => {
     'То, что вы делаете по ночам, то и делает вас богатым. (Аль Капоне)',
   ]);
 
-  const handleChange = (event: 'НУЖНО ПРОТИПИЗИРОВАТЬ') => {
-    // setCurrentText(ЧЕГО-ТО НЕ ХВАТАЕТ);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setCurrentText(event.currentTarget.value);
   };
 
   const handleSave = () => {
@@ -27,13 +27,13 @@ export const HW3 = () => {
 
   return (
     <div id={'hw03'}>
-      {/*{currentText ? (*/}
-      {/*  <h1 id={'hw03-text'}>ЗДЕСЬ ХОТЕЛОСЬ БЫ УВИДЕТЬ ВВОДИМЫЙ ТЕКСТ</h1>*/}
-      {/*) : (*/}
-      {/*  <h1 id={'hw03-default-text'}>Здесь появится новое дело</h1> // ничего не меняем, здесь все норм*/}
-      {/*)}*/}
+      {currentText ? (
+       <h1 id={'hw03-text'}>{currentText}</h1>
+      ) : (
+       <h1 id={'hw03-default-text'}>Здесь появится новое дело</h1> // ничего не меняем, здесь все норм
+      )}
 
-      {/*<input id={'hw03-input'} type="text" value={currentText} onChange={handleChange} />*/}
+      <input id={'hw03-input'} type="text" value={currentText} onChange={handleChange} />
 
       {/*<button id={'hw03-button'} onClick={() => {}}> // НЕ ХВАТАТЕТ ФУНКЦИИ*/}
       {/*  Сохранить*/}
