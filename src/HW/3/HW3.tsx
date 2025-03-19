@@ -23,6 +23,10 @@ export const HW3 = () => {
   const handleSave = () => {
     // ЗАСЕТАТЬ БЫ ТЕКСТ В texts И НЕ ПОТЕРЯТЬ НАПУТСТВИЕ ИЗ ПРОШЛОГО ВЕКА)
     // А ЗАТЕМ УБРАТЬ ЗА СОБОЙ В currentText
+    let newTexts = [...texts, currentText];
+
+    setTexts(newTexts);
+    setCurrentText('');
   };
 
   return (
@@ -35,9 +39,9 @@ export const HW3 = () => {
 
       <input id={'hw03-input'} type="text" value={currentText} onChange={handleChange} />
 
-      {/*<button id={'hw03-button'} onClick={() => {}}> // НЕ ХВАТАТЕТ ФУНКЦИИ*/}
-      {/*  Сохранить*/}
-      {/*</button>*/}
+      <button id={'hw03-button'} onClick={() => handleSave()}>
+       Сохранить
+      </button>
 
       {/*<h1 style={{ marginTop: '50px' }}>СПИСОК ДЕЛ НА ДЕНЬ:</h1>*/}
 
